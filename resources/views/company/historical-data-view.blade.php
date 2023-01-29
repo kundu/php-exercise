@@ -77,8 +77,6 @@
         </script>
 
         <script>
-            const ctx = document.getElementById('myChart');
-
             $('#submitForm').on('submit',function(e){
                 e.preventDefault();
                 $("#graphCanvas").hide();
@@ -143,7 +141,11 @@
         </script>
 
         <script>
+            chart;
             function chartLoad(chartData) {
+                $('#myChart').remove();
+                $('#graphCanvas').append('<canvas id="myChart"><canvas>');
+                ctx = document.querySelector('#myChart');
                 labels = chartData.labels;
                 data = {
                     labels: labels,
